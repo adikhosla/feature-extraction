@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
-|              Comptuer vision feature extraction                            |
+|              Feature Extraction Toolbox for Computer Vision                |
 ------------------------------------------------------------------------------
 
 Copyright (c) 2013 Aditya Khosla
