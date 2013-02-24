@@ -1,4 +1,4 @@
-Computer Vision Toolbox for Feature Extraction
+Feature Extraction Toolbox for Computer Vision
 ==============================================
 
 
