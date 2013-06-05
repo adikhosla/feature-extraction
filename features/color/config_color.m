@@ -7,7 +7,7 @@ p.llcknn = 3;
 p.maxsize = 500;
 
 % dictionary parameters
-p.dictionary_size = 200;
+p.dictionary_size = 100;
 p.num_images = 2000;
 p.descPerImage = 3000;
 p.num_desc = 4000000;

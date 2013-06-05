@@ -1,5 +1,5 @@
 function [p] = config_hog3x3(c)
-p.grid_spacing = 4; % distance between grid centers
+p.grid_spacing = 6; % distance between grid centers
 p.patch_size = 24;
 p.Mw = 2; % number of spatial scales for spatial pyramid histogram
 p.descriptor = 'hog';
@@ -7,13 +7,13 @@ p.w = p.patch_size; % boundary for HOG
 
 p.pyramid_levels = 2;
 p.llcknn = 3;
-p.maxsize = 500;
+p.maxsize = 400;
 
 % dictionary parameters
-p.dictionary_size = 25;
+p.dictionary_size = 256;
 p.num_images = 2000;
 p.descPerImage = 3000;
-p.num_desc = 4000000;
+p.num_desc = 2000000;
 
 p.train_file = '%s/train_hog3x3_%d.mat';
 p.test_file = '%s/test_hog3x3_%d.mat';
