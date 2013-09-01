@@ -1,4 +1,4 @@
-function [beta] = LLC_pooling(integralData, imageInfo, x, y, patchSize, pyramidLevels)
+function [beta] = max_pooling(integralData, imageInfo, x, y, patchSize, pyramidLevels)
 
 pyramid = 2.^(0:pyramidLevels);
 stepSize.x = patchSize.x/(pyramid(end));

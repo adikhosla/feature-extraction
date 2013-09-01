@@ -37,7 +37,7 @@ if(isfield(p, 'dictionary_file'))
         [llcfeat{j}, x, y, wid, hgt] = llc_feature(feature, img, c);
         info{j}.x = x; info{j}.y = y; info{j}.wid = wid; info{j}.hgt = hgt;
       end
-      poolfeat = LLC_pooling(llcfeat, info, 0, 0, patch_size, p.pyramid_levels);
+      poolfeat = max_pooling(llcfeat, info, 0, 0, patch_size, p.pyramid_levels);
       parsaveLLC(batch_file, poolfeat, filelist(this_batch));
     end
   end
