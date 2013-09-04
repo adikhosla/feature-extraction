@@ -1,6 +1,6 @@
 function [poolfeat] = filelist_feature(dataset_name, filelist, feature, c)
 
-if(~isempty(dataset_name))
+if(~isempty(dataset_name) && c.common_dictionary==0)
     c.cache=[c.cache '/' dataset_name '/'];
 end
 
