@@ -13,7 +13,7 @@ idx = randperm(length(train_lists));
 
 for j=1:length(train_lists)
   i = idx(j);
-  fprintf('Dataset: %s\n', dataset_names{i});
+  vprintf(c.verbosity, 0, 'Dataset: %s\n', dataset_names{i});
   c.cache = [cache_folder '/' dataset_names{i} '/'];
 
   if(~c.common_dictionary)

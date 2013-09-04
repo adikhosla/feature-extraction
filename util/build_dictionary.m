@@ -30,11 +30,12 @@ while(found_dictionary == 0)
       end
     end
     
+		vprintf(c.verbosity, 0, 'Learning dictionary for feature %s of size %d\n', feature, p.dictionary_size)
     perm = randperm(length(filelist));
     descriptors = cell(min(length(filelist), p.num_images), 1);
     num_images = min(length(filelist), p.num_images);
     parfor i=1:num_images
-      fprintf('Dictionary learning (%s): %d of %d\n', feature, i, num_images);
+      vprintf(c.verbosity, 1, 'Dictionary learning (%s): %d of %d\n', feature, i, num_images);
       img = imgread(filelist{perm(i)}, p);
       feat = extract_feature(feature, img, c);
       r = randperm(size(feat, 1));
@@ -46,26 +47,25 @@ while(found_dictionary == 0)
       idx = randperm(ndata);
       descriptors = descriptors(idx(1:p.num_desc), :);
     end
-    fprintf('Running k-means, dictionary size %d...', p.dictionary_size);
+    vprintf(c.verbosity, 0, 'Running k-means, dictionary size %d...', p.dictionary_size);
     dictionary = kmeansFast(descriptors, p.dictionary_size);
-    fprintf('done!\n');
-    dictionary = dictionary';
-    fprintf('Saving dictionary: %s\n', p.dictionary_file);
+    vprintf(c.verbosity, 0, 'done!\n');
+    vprintf(c.verbosity, 0, 'Saving dictionary: %s\n', p.dictionary_file);
     save(p.dictionary_file, 'dictionary');
     found_dictionary = 1;
   else
     load(p.dictionary_file);
     if(~exist('dictionary', 'var'))
       if(check_building == 0)
-        fprintf('Dictionary building in progress on %s..', hostname);
+        vprintf(c.verbosity, 0, 'Dictionary building in progress on %s..', hostname);
         check_building = 1;
       end
-      fprintf('.');
+      vprintf(c.verbosity, 1, '.');
       pause(5);
     else
       found_dictionary = 1;
       if(check_building == 1)
-        fprintf('\n');
+        vprintf(c.verbosity, 0, '\n');
       end
     end
   end
