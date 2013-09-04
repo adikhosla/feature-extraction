@@ -9,13 +9,13 @@ if(c.common_dictionary)
     c.feature_config.(feature).dictionary = build_dictionary(train_lists, feature, c);
 end
 cache_folder = c.cache;
-idx = randperm(length(trainlists));
+idx = randperm(length(train_lists));
 
-for j=1:length(trainlists)
+for j=1:length(train_lists)
   i = idx(j);
   fprintf('Dataset: %s\n', dataset_names{i});
   c.cache = [cache_folder '/' dataset_names{i} '/'];
-  
+
   if(~c.common_dictionary)
       c.feature_config.(feature).dictionary = build_dictionary(train_lists, feature, c);
   end

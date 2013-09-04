@@ -11,9 +11,9 @@ p.maxsize = 400;
 
 % dictionary parameters
 p.dictionary_size = 256;
-p.num_images = 2000;
+p.num_images = 500;
 p.descPerImage = 2000;
-p.num_desc = 2000000;
+p.num_desc = 500000;
 
 p.train_file = '%s/train_hog2x2_%d.mat';
 p.test_file = '%s/test_hog2x2_%d.mat';

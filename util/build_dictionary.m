@@ -15,6 +15,7 @@ check_building = 0;
 while(found_dictionary == 0)
   if(~exist(p.dictionary_file, 'file'))
     hostname = getComputerName();
+		make_dir(p.dictionary_file);
     save(p.dictionary_file, 'hostname');
     
     %check for multiple datasets
@@ -49,7 +50,6 @@ while(found_dictionary == 0)
     dictionary = kmeansFast(descriptors, p.dictionary_size);
     fprintf('done!\n');
     dictionary = dictionary';
-    make_dir(p.dictionary_file);
     fprintf('Saving dictionary: %s\n', p.dictionary_file);
     save(p.dictionary_file, 'dictionary');
     found_dictionary = 1;
