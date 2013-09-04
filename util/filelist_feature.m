@@ -10,7 +10,7 @@ if(~isfield(p, 'dictionary'))
 end
 
 if(isempty(c.feature_config.(feature).dictionary))
-    % Feature does not require LLC coding + pooling
+    % Feature does not require LLC encoding + max pooling
     poolfeat = cell(length(filelist), 1);
     parfor i=1:length(this_batch)
         img = imgread(filelist{i}, p);
@@ -18,7 +18,7 @@ if(isempty(c.feature_config.(feature).dictionary))
     end
     poolfeat=cell2mat(poolfeat);
 else
-    % Feature requires LLC coding + pooling
+    % Feature requires LLC encoding + max pooling
     llcfeat = cell(length(filelist), 1);
     info = cell(length(filelist), 1);
     parfor i=1:length(filelist)
