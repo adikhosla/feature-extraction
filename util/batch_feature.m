@@ -28,7 +28,7 @@ for b=1:num_batches
     if(~exist(batch_file, 'file'))
         parsaveFeat(batch_file, [], []);
         poolfeat = filelist_feature('', filelist(this_batch), feature, c);
-        parsaveFeat(batch_file, poolfeat, filelist(this_batch));
+        parsaveFeat(batch_file, poolfeat, this_batch);
     end
 end
 
