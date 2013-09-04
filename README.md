@@ -1,4 +1,6 @@
-Feature Extraction Toolbox for Computer Vision
-==============================================
+Computer Vision Feature Extraction Toolbox for Image Classification
+-------------------------------------------------------------------
+
+Under construction!
 
 
