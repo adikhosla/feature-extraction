@@ -1,4 +1,13 @@
 function [p] = config_color(c)
+%
+% Copyright Aditya Khosla http://mit.edu/khosla
+%
+% Please cite this paper if you use this code in your publication:
+%   A. Khosla, J. Xiao, A. Torralba, A. Oliva
+%   Memorability of Image Regions
+%   Advances in Neural Information Processing Systems (NIPS) 2012
+%
+
 p.grid_spacing = 4; % distance between grid centers
 p.patch_sizes = [6 8 10 12 14 16];
 
@@ -7,7 +16,7 @@ p.llcknn = 3;
 p.maxsize = 500;
 
 % dictionary parameters
-p.dictionary_size = 200;
+p.dictionary_size = 256;
 p.num_images = 500;
 p.descPerImage = 2000;
 p.num_desc = 500000;

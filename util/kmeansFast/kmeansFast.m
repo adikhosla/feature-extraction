@@ -6,6 +6,7 @@ function [centers,mincenter,mindist,q2,quality] = kmeansFast(data,initcenters,me
 % method = 0: unoptimized, using n by k matrix of distances O(nk) space
 %          1: vectorized, using only O(n+k) space
 %          2: like 1, in addition using distance inequalities (default)
+% URL: http://cseweb.ucsd.edu/~elkan/fastkmeans.html
 
 tic
 if nargin < 3 method = 2; end

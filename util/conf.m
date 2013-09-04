@@ -1,4 +1,12 @@
 function [c] = conf(cache_folder)
+%
+% Copyright Aditya Khosla http://mit.edu/khosla
+%
+% Please cite this paper if you use this code in your publication:
+%   A. Khosla, J. Xiao, A. Torralba, A. Oliva
+%   Memorability of Image Regions
+%   Advances in Neural Information Processing Systems (NIPS) 2012
+%
 
 % cache folder is where features, dictionary, etc are stored
 if(~exist('cache_folder', 'var'))

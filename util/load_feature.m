@@ -1,4 +1,12 @@
 function [feat] = load_feature(dataset_name, feature, imgset, c, batch_id)
+%
+% Copyright Aditya Khosla http://mit.edu/khosla
+%
+% Please cite this paper if you use this code in your publication:
+%   A. Khosla, J. Xiao, A. Torralba, A. Oliva
+%   Memorability of Image Regions
+%   Advances in Neural Information Processing Systems (NIPS) 2012
+%
 
 if(~exist('dataset_name', 'var') || isempty(dataset_name))
     dataset_name = '';

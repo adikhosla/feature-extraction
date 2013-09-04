@@ -33,7 +33,8 @@ function [gist, param] = LMgist(D, HOMEIMAGES, param)
 %     precomputed = 0;
 %     HOMEGIST = '';
 % end
-
+%
+% URL: http://labelme.csail.mit.edu/Release3.0/browserTools/php/matlab_toolbox.php
     
 param.boundaryExtension = 32; % number of pixels to pad
 

@@ -1,4 +1,5 @@
 function sift_arr = sp_find_sift_grid(I, grid_x, grid_y, patch_size, sigma_edge)
+% URL: http://www.cs.illinois.edu/homes/slazebni/research/SpatialPyramid.zip
 
 % parameters
 num_angles = 8;
@@ -25,7 +26,7 @@ I_X = filter2(G_X, I, 'same'); % vertical edges
 I_Y = filter2(G_Y, I, 'same'); % horizontal edges
 I_mag = sqrt(I_X.^2 + I_Y.^2); % gradient magnitude
 I_theta = atan2(I_Y,I_X);
-I_theta(isnan(I_theta)) = 0; % necessary????
+I_theta(isnan(I_theta)) = 0;
 
 % make default grid of samples (centered at zero, width 2)
 interval = 2/num_bins:2/num_bins:2;
@@ -79,10 +80,6 @@ for i=1:num_patches
     weights_y = dist_py/sample_res;
     weights_y = (1 - weights_y) .* (weights_y <= 1);
     weights = weights_x .* weights_y;
-%     % make sure that the weights for each pixel sum to one?
-%     tmp = sum(weights,2);
-%     tmp = tmp + (tmp == 0);
-%     weights = weights ./ repmat(tmp, [1 num_samples]);
         
     % make sift descriptor
     curr_sift = zeros(num_angles, num_samples);
@@ -92,15 +89,6 @@ for i=1:num_patches
         curr_sift(a,:) = sum(tmp .* weights);
     end
     sift_arr(i,:) = reshape(curr_sift, [1 num_samples * num_angles]);    
-        
-%     % visualization
-%     if sigma_edge >= 3
-%         subplot(1,2,1);
-%         rescale_and_imshow(I(y_lo:y_hi,x_lo:x_hi) .* reshape(sum(weights,2), [y_hi-y_lo+1,x_hi-x_lo+1]));
-%         subplot(1,2,2);
-%         rescale_and_imshow(curr_sift);
-%         pause;
-%     end
 end
 
 function G=gen_gauss(sigma)
@@ -109,8 +97,6 @@ if all(size(sigma)==[1, 1])
     % isotropic gaussian
 	f_wid = 4 * ceil(sigma) + 1;
     G = fspecial('gaussian', f_wid, sigma);
-%	G = normpdf(-f_wid:f_wid,0,sigma);
-%	G = G' * G;
 else
     % anisotropic gaussian
     f_wid_x = 2 * ceil(sigma(1)) + 1;
@@ -123,9 +109,6 @@ end
 function [GX,GY]=gen_dgauss(sigma)
 
 % laplacian of size sigma
-%f_wid = 4 * floor(sigma);
-%G = normpdf(-f_wid:f_wid,0,sigma);
-%G = G' * G;
 G = gen_gauss(sigma);
 [GX,GY] = gradient(G); 
 

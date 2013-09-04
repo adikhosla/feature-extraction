@@ -1,5 +1,6 @@
 function [centers, mincenter, mindist, lower, computed] = anchors(firstcenter,k,data)
 % choose k centers by the furthest-first method
+% URL: http://cseweb.ucsd.edu/~elkan/fastkmeans.html
 
 [n,dim] = size(data);
 centers = zeros(k,dim);
@@ -27,19 +28,8 @@ for j = 1:k
     computed = computed + size(inplay,1);
     lower(inplay,j) = newdist;
         
-%    other = find(mindist <= centdist(mincenter,j)/2);
-%    if ~isempty(other)
-%        lower(other,j) = centdist(mincenter(other),j) - mindist(other);
-%    end    
-        
     move = find(newdist < mindist(inplay));
     shift = inplay(move);
     mincenter(shift) = j;
     mindist(shift) = newdist(move);
 end
-
-%udist = calcdist(data,centers(mincenter,:));
-%quality = mean(udist);
-%q2 = mean(udist.^2);
-%[k toc quality q2 computed]
-%toc

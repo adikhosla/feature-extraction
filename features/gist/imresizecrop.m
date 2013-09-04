@@ -3,6 +3,8 @@ function img = imresizecrop(img, M, METHOD)
 % img = imresizecrop(img, M, METHOD);
 %
 % Output an image of size M(1) x M(2).
+%
+% URL: http://labelme.csail.mit.edu/Release3.0/browserTools/php/matlab_toolbox.php
 
 if nargin < 3
     METHOD = 'bilinear';

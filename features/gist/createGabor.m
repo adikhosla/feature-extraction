@@ -15,7 +15,8 @@ function G = createGabor(or, n)
 %
 % output
 %     G = transfer functions for a jet of gabor filters
-
+%
+% URL: http://labelme.csail.mit.edu/Release3.0/browserTools/php/matlab_toolbox.php
 
 Nscales = length(or);
 Nfilters = sum(or);

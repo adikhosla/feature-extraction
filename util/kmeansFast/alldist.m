@@ -1,6 +1,7 @@
 function centdist = alldist(centers)
 % output: matrix of all pairwise distances
 % input: data points (centers)
+% URL: http://cseweb.ucsd.edu/~elkan/fastkmeans.html
 
 k = size(centers,1);
 centdist = zeros(k,k);

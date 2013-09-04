@@ -1,4 +1,13 @@
 function [x, y, gridX, gridY] = create_grid(hgt, wid, grid_spacing, patch_size)
+%
+% Copyright Aditya Khosla http://mit.edu/khosla
+%
+% Please cite this paper if you use this code in your publication:
+%   A. Khosla, J. Xiao, A. Torralba, A. Oliva
+%   Memorability of Image Regions
+%   Advances in Neural Information Processing Systems (NIPS) 2012
+%
+
 remX = mod(wid-patch_size,grid_spacing);
 offsetX = floor(remX/2)+1;
 remY = mod(hgt-patch_size,grid_spacing);

@@ -1,4 +1,12 @@
 function [beta] = max_pooling(integralData, imageInfo, poolRegion, pyramidLevels)
+%
+% Copyright Aditya Khosla http://mit.edu/khosla
+%
+% Please cite this paper if you use this code in your publication:
+%   A. Khosla, J. Xiao, A. Torralba, A. Oliva
+%   Memorability of Image Regions
+%   Advances in Neural Information Processing Systems (NIPS) 2012
+%
 
 x=poolRegion.x1; px=poolRegion.x2-poolRegion.x1;
 y=poolRegion.y1; py=poolRegion.y2-poolRegion.y1;

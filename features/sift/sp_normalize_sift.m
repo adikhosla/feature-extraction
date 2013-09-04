@@ -1,5 +1,6 @@
 function sift_arr = sp_normalize_sift(sift_arr)
 % normalize SIFT descriptors (after Lowe)
+% URL: http://www.cs.illinois.edu/homes/slazebni/research/SpatialPyramid.zip
 
 % find indices of descriptors to be normalized (those whose norm is larger than 1)
 tmp = sqrt(sum(sift_arr.^2, 2));

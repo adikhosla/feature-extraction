@@ -1,6 +1,7 @@
 function distances = calcdist(data,center)
 %  input: vector of data points, single center or multiple centers
 % output: vector of distances
+% URL: http://cseweb.ucsd.edu/~elkan/fastkmeans.html
 
 [n,dim] = size(data);
 [n2,dim2] = size(center);
@@ -20,6 +21,3 @@ end
 
 % Euclidean 2-norm distance:
 distances = sqrt(distances);
-
-% Inf-norm distance:
-% distances = max(abs(distances),[],2);

@@ -1,4 +1,13 @@
 function [p] = config_sift(c)
+%
+% Copyright Aditya Khosla http://mit.edu/khosla
+%
+% Please cite this paper if you use this code in your publication:
+%   A. Khosla, J. Xiao, A. Torralba, A. Oliva
+%   Memorability of Image Regions
+%   Advances in Neural Information Processing Systems (NIPS) 2012
+%
+
 p.grid_spacing = 6; % distance between grid centers
 p.patch_sizes = [8 16 24];
 
