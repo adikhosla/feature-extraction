@@ -1,8 +1,11 @@
-function [beta] = max_pooling(integralData, imageInfo, x, y, patchSize, pyramidLevels)
+function [beta] = max_pooling(integralData, imageInfo, poolRegion, pyramidLevels)
+
+x=poolRegion.x1; px=poolRegion.x2-poolRegion.x1;
+y=poolRegion.y1; py=poolRegion.y2-poolRegion.y1;
 
 pyramid = 2.^(0:pyramidLevels);
-stepSize.x = patchSize.x/(pyramid(end));
-stepSize.y = patchSize.y/(pyramid(end));
+stepSize.x = px/(pyramid(end));
+stepSize.y = py/(pyramid(end));
 
 pyramidIdx = cell(pyramid(end));
 tBins = sum(pyramid.^2);
@@ -22,7 +25,7 @@ for i=1:pyramid(end)
         idx = cellfun(@(x, y) getIdxY(x, y,start_y, end_y), imageInfo, x_idx, 'UniformOutput', false);
         binIdx = (currentBin-1)*featureSize+1:currentBin*featureSize; 
         pyramidIdx{i, j} = binIdx;
-        beta(:, binIdx) = cell2mat(cellfun(@maxIdxPascal, integralData, idx, 'UniformOutput', false));
+        beta(:, binIdx) = cell2mat(cellfun(@maxIdx, integralData, idx, 'UniformOutput', false));
         currentBin = currentBin + 1;
     end
 end

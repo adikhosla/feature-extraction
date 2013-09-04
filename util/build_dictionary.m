@@ -56,7 +56,7 @@ while(found_dictionary == 0)
   else
     load(p.dictionary_file);
     if(~exist('dictionary', 'var'))
-      if(check_building ==0)
+      if(check_building == 0)
         fprintf('Dictionary building in progress on %s..', hostname);
         check_building = 1;
       end
@@ -64,7 +64,7 @@ while(found_dictionary == 0)
       pause(5);
     else
       found_dictionary = 1;
-      if(check_building==1)
+      if(check_building == 1)
         fprintf('\n');
       end
     end

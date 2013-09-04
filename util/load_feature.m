@@ -1,4 +1,4 @@
-function [feat] = load_features(feature, imgset, c, dataset_name, batch_id)
+function [feat] = load_feature(dataset_name, feature, imgset, c, batch_id)
 
 if(~exist('dataset_name', 'var') || isempty(dataset_name))
     dataset_name = '';
@@ -33,12 +33,12 @@ else
     tmp = load(feature_file);
     if(isempty(tmp.feat))
         batch_files = tmp.batch_files;
-				feat = cell(length(batch_id), 1);
-				for i=1:length(batch_id)
+		feat = cell(length(batch_id), 1);
+		for i=1:length(batch_id)
           tmp = load(batch_files{batch_id(i)});
           feat{i} = tmp.poolfeat;
-			  end
-				feat = cell2mat(feat);
+		end
+		feat = cell2mat(feat);
     else
         feat = tmp.feat;
     end

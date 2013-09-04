@@ -11,7 +11,7 @@ if(size(img, 3)==1)
   img = repmat(img, [1 1 3]);
 end
 
-img_color = im2c(double(img), p.w2c, 0);
+img_color = im2c(img, p.w2c);
 
 [hgt, wid, ~] = size(img);
 grid_spacing = p.grid_spacing;

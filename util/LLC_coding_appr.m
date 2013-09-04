@@ -12,6 +12,9 @@
 %       Coeff   -N x M matrix, each row is a code for corresponding X
 %
 % Jinjun Wang, march 19, 2010
+% URL: http://www.ifp.illinois.edu/~jyang29/codes/CVPR10-LLC.rar
+%
+% Minor edits by Aditya Khosla
 % ========================================================================
 
 function [Coeff] = LLC_coding_appr(B, X, knn, beta)
@@ -28,17 +31,9 @@ nframe=size(X,1);
 nbase=size(B,1);
 
 % find k nearest neighbors
-%XX = sum(X.*X, 2);
-%BB = sum(B.*B, 2);
-%D  = repmat(XX, 1, nbase)-2*X*B'+repmat(BB', nframe, 1);
 D = sp_dist2(X, B);
 [~, sort_idx] = sort(D, 2, 'ascend');
 IDX = sort_idx(:, 1:knn);
-%for i = 1:nframe,
-%	d = D(i,:);
-%	[dummy, idx] = sort(d, 'ascend');
-%	IDX(i, :) = idx(1:knn);
-%end
 
 % llc approximation coding
 II = eye(knn, knn);
