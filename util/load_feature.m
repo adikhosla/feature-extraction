@@ -21,10 +21,11 @@ if(isempty(tmp.feat))
     
     feat = cell(length(batch_id), 1);
     for i=1:length(batch_id)
-      vprintf(c.verbosity, 1, 'Loading batch %d of %d', i, length(batch_id));
+      vprintf(c.verbosity, 1, 'Loading batch %d of %d\r', i, length(batch_id));
       tmp = load(batch_files{batch_id(i)});
       feat{i} = tmp.poolfeat;
     end
+		vprintf(c.verbosity, 1, '\n');
     feat = cell2mat(feat);
 else
     feat = tmp.feat;

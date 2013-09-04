@@ -36,6 +36,9 @@ c.common_dictionary = 0;
 % Verbosity of process: -1 is none, 0 is low, 1 is high (low by default)
 c.verbosity = 0;
 
+% Storage type: single or double precision (single by default)
+c.precision = 'single';
+
 % Reset the random seed
 stream = RandStream('mt19937ar','Seed', sum(1000*clock));
 RandStream.setGlobalStream(stream);

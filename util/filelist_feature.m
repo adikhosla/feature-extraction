@@ -12,7 +12,7 @@ end
 if(isempty(c.feature_config.(feature).dictionary))
     % Feature does not require LLC encoding + max pooling
     poolfeat = cell(length(filelist), 1);
-    parfor i=1:length(this_batch)
+    parfor i=1:length(filelist)
         img = imgread(filelist{i}, p);
         poolfeat{i} = extract_feature(feature, img, c);
     end
@@ -28,3 +28,5 @@ else
     end
     poolfeat = max_pooling(llcfeat, info, c.pool_region, p.pyramid_levels);
 end
+
+poolfeat = cast(poolfeat, c.precision);

@@ -6,8 +6,10 @@ end
 p = c.feature_config.(feature);
 if(isfield(p, 'dictionary_size'))
 	feature_file = sprintf(p.([imgset '_file']), c.cache, p.dictionary_size);
+	batch_folder = [c.cache '/' imgset '_' feature '_' num2str(p.dictionary_size) '/'];
 else
-    feature_file = sprintf(p.([imgset '_file']), c.cache);
+  feature_file = sprintf(p.([imgset '_file']), c.cache);
+	batch_folder = [c.cache '/' imgset '_' feature '_' num2str(p.feature_size) '/'];
 end
 
 if(exist(feature_file, 'file'))
@@ -20,17 +22,19 @@ batch_idx = arrayfun(@(x) (x-1)*c.batch_size+1:min(x*c.batch_size, length(fileli
 batch_order = randperm(num_batches);
 batch_files = cell(num_batches, 1);
 
+vprintf(c.verbosity, 0, 'Processing filelist (%s, %s): batch %d of %d\r', imgset, feature, 0, num_batches);
 for b=1:num_batches
     this_batch = batch_idx{batch_order(b)};
-    batch_file = [c.cache imgset '_' feature '_' num2str(p.dictionary_size) '/' num2str(batch_order(b)) '.mat'];
+    batch_file = [batch_folder num2str(batch_order(b)) '.mat'];
     batch_files{batch_order(b)} = batch_file;
-    vprintf(c.verbosity, 0, 'Processing filelist (%s, %s): batch %d of %d\n', imgset, feature, b, num_batches);
+    vprintf(c.verbosity, 0, 'Processing filelist (%s, %s): batch %d of %d\r', imgset, feature, b, num_batches);
     if(~exist(batch_file, 'file'))
         parsaveFeat(batch_file, [], []);
         poolfeat = filelist_feature('', filelist(this_batch), feature, c);
-        parsaveFeat(batch_file, poolfeat, filelist(this_batch));
+        parsaveFeat(batch_file, poolfeat, this_batch);
     end
 end
+vprintf(c.verbosity, 0, '\n');
 
 if(nargout>0)
     feat = cell(num_batches, 1);

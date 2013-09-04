@@ -30,7 +30,7 @@ while(found_dictionary == 0)
       end
     end
     
-		vprintf(c.verbosity, 0, 'Learning dictionary for feature %s of size %d\n', feature, p.dictionary_size)
+		vprintf(c.verbosity, 0, 'Learning dictionary for feature: %s, size %d\n', feature, p.dictionary_size);
     perm = randperm(length(filelist));
     descriptors = cell(min(length(filelist), p.num_images), 1);
     num_images = min(length(filelist), p.num_images);
