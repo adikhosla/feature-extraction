@@ -2,12 +2,19 @@ Details of included features
 ----------------------------
 
 The following features are provided in this toolbox:
- - <b>Color</b>: 
- - <b>Gist</b>: 
- - <b>Dense HOG2x2, HOG3x3</b>: 
- - <b>LBP</b>: 
- - <b>Dense SIFT</b>:
- - <b>SSIM</b>:
+ - <b>Color</b>: Convert the image to color names [1] and extract dense overlapping patches of multiple sizes in the form of a histogram of color names. Then apply the bag-of-words + spatial pyramid pipeline explained below.
+ - <b>Gist</b>: GIST descriptor describing the spatial envelope of the image [10]
+ - <b>Dense HOG2x2, HOG3x3</b>: Extract HOG [9] in a dense manner (i.e. on a grid) [3] and concatenate 2x2 or 3x3 cells to obtain a descriptor at each grid location. Then apply the bag-of-words + spatial pyramid pipeline explained below. This feature is also used in [11].
+ - <b>LBP</b>: Extract non-uniform Local Binary Pattern [8] descriptor (neighborhood: 8, transitions: 2), and concatenate 3 levels of spatial pyramid to obtain final feature vector.
+ - <b>Dense SIFT</b>: Extract SIFT [5] descriptor in a dense manner (i.e. on a grid) at multiple patch sizes, and then apply the bag-of-words + spatial pyramid pipeline explained below.
+ - <b>SSIM</b>: Extract Self-Similarity Image Matching [7] descriptor in a dense manner and apply the bag-of-words + spatial pyramid pipeline to obtain the final feature vector.
+
+Bag-of-words pipeline: using a random sampling of the extracted features from various patches, learn a dictionary using k-means [2], and apply locality-constrained linear coding (LLC) [6] to soft-encode each patch to a some dictionary entries. Then, as shown in [6], we apply max pooling with a spatial pyramid [4] to obtain the final feature vector. We use LLC as it allows the use of a linear classifier for classification instead of using non-linear kernels.
+
+The feature configurations can be accessed through the <i>conf</i> structure: <i>c.feature_config.(feature_name)</i>, where <i>feature_name</i> is one of the following:
+
+
+For the features using bag-of-words, some important feature configurations to consider are <i>pyramid_levels</i> and <i>dictionary_size</i>.
 
 References
 ----------
