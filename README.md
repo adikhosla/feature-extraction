@@ -3,7 +3,12 @@ Feature Extraction Toolbox for Image Classification
 
 The goal of this toolbox is to simplify the process of feature extraction, of commonly used computer vision features such as HOG, SIFT, GIST and Color, for tasks related to image classification. 
 
-In addition to providing some of the popular features, the toolbox has been designed for use with the ever increasing size of modern datasets - the processing is done in batches and is fully paralellized on a single machine, and can be easily distributed across multiple machines with a commmon file system (the standard cluster setup in many universities).
+In addition to providing some of the popular features, the toolbox has been designed for use with the ever increasing size of modern datasets - the processing is done in batches and is fully paralellized on a single machine, and can be easily distributed across multiple machines with a common file system (the standard cluster setup in many universities).
+
+Disclaimer
+----------
+
+Most of the features included in this toolbox have not been designed by me. I have either fine-tuned them or used them as is from existing work. This toolbox simply unifies existing code bases (which are credited in the bundled libraries section) in an easy to use architecture. I have done my best to highlight where different snippets of code originate from, but please do not hestitate to contact me if you find that I have missed anything. <b>Most importantly: please cite the original inventors of the different features when you use them in your work.</b>
 
 References
 ----------
@@ -19,9 +24,6 @@ The provided code was used for feature extraction in the following papers:
  <br><a href="http://people.csail.mit.edu/khosla">Modifying the Memorability of Face Photographs</a>, ICCV 2013
 
 Please cite a subset of the above papers if you use this code.
-
-Disclaimer
-----------
 
 Questions and Comments
 ----------------------
