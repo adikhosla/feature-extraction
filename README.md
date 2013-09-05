@@ -54,22 +54,10 @@ There are various options available through the config structure created using t
  - <b>feature_config.(feature_name)</b>: contains the configuration of feature_name such as dictionary size
  - <b>batch_size</b>: batch size for feature processing (reduce for less RAM usage)
  - <b>cores</b>: specify number of cores to use for parfor (0 = use all)
- - <b>verbosity</b>: used to change how much is output to screen during feature computation
+ - <b>verbosity</b>: used to change how much is output to screen during feature computation (0 = low, 1 = high)
  - <b>common_dictionary</b>: used to share a common dictionary across datasets. Dictionary is learned using equal number of samples from each dataset (useful for ECCV 2012 paper).
 
 Additional options are described in <i><a href="https://github.com/adikhosla/feature-extraction/blob/master/util/conf.m">conf.m</a></i>.
-
-
-Details of included features
-----------------------------
-
-The following features are provided in this toolbox:
- - <b>Color</b>: 
- - <b>Gist</b>: 
- - <b>Dense HOG2x2, HOG3x3</b>: 
- - <b>LBP</b>: 
- - <b>Dense SIFT</b>:
- - <b>SSIM</b>:
 
 Bundled code
 ------------
@@ -85,7 +73,7 @@ There are functions or snippets of code included with or without modification fr
 Disclaimer
 ----------
 
-Most of the features included in this toolbox have not been designed by me. I have either fine-tuned them or used them as is from existing work. This toolbox simply unifies existing code bases (which are credited in the <a href="#bundled-code">bundled code</a> section) in an easy to use architecture. I have done my best to highlight where different snippets of code originate from, but please do not hesitate to contact me if you find that I have missed anything. <b>Most importantly: please cite the original inventors of the different features when you use them in your work.</b>
+Most of the features included in this toolbox have not been designed by me. I have either fine-tuned them or used them as is from existing work. This toolbox simply unifies existing code bases (which are credited in the <a href="#bundled-code">bundled code</a> section) in an easy to use architecture. I have done my best to highlight where different snippets of code originate from, but please do not hesitate to contact me if you find that I have missed anything. <b>Most importantly: please cite the <a href="FEATURES.md">original inventors</a> of the different features when you use them in your work.</b>
 
 Reference
 ---------
