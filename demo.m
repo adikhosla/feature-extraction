@@ -9,7 +9,7 @@
 
 addpath(genpath(pwd));
 
-% Setup the feature processing
+% Initialize variables for calling datasets_feature function
 info = load('images/filelist.mat');
 datasets = {'demo'};
 train_lists = {info.train_list};
@@ -29,8 +29,9 @@ test_features = load_feature(datasets{1}, feature, 'test', c);
 
 % Below is a simple nearest-neighbor classifier
 %  The display code is more complicated than finding the actual nearest
-%  neighbor. Only one line is required to find the nearest neighbor:
+%  neighbor. Only two lines are required to find the nearest neighbor:
 %   [~, nn_idx] = min(sp_dist2(train_features, test_features));
+%   predicted_labels = train_labels(nn_idx);
 % The images have a border color of black and white to indicate the two
 % different classes in the demo dataset.
 
@@ -76,3 +77,10 @@ for i=1:length(unique_labels)
         imshow(im); title(sprintf('Nearest neighbor, predicted class: %s', classes{train_labels(nn_idx(idx(j)))}));
     end
 end
+
+%
+% Sample code for usage of features with Liblinear SVM classifier:
+%   svm_options = '-s 2 -B 1 -c 1 -q';
+%   model = train(train_labels, sparse(double(train_features)), svm_options);
+%   predicted_labels = predict(test_labels, sparse(double(test_features)), model);
+%
