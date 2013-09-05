@@ -5,6 +5,10 @@ The goal of this toolbox is to simplify the process of feature extraction, of co
 
 In addition to providing some of the popular features, the toolbox has been designed for use with the ever increasing size of modern datasets - the processing is done in batches and is fully parallelized on a single machine (using parfor), and can be easily distributed across multiple machines with a common file system (the standard cluster setup in many universities).
 
+The features extracted in a bag-of-words manner ('color', 'hog2x2', 'hog3x3', 'sift', 'ssim') are encoded using Locality-Constrained Linear Coding to allow the use of a linear classifier for fast training + testing.
+
+In my experients, I have found 'hog2x2' or 'hog3x3' to be most effective as global image features, and tend to perform even better when combined with 'color' features which contain complementary information.
+
 Installation
 ------------
 Before you can use the code, you need to download this repository and compile the mex code:
