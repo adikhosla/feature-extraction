@@ -1,7 +1,7 @@
 Computer Vision Feature Extraction Toolbox for Image Classification
 -------------------------------------------------------------------
 
-The goal of this toolbox is to simplify the process of feature extraction, of commonly used computer vision features such as HOG, SIFT, GIST and Color, for tasks related to image classification. 
+The goal of this toolbox is to simplify the process of feature extraction, of commonly used computer vision features such as HOG, SIFT, GIST and Color, for tasks related to image classification. The details of the included features are available in <a href="FEATURES.md">FEATURES.md</a>.
 
 In addition to providing some of the popular features, the toolbox has been designed for use with the ever increasing size of modern datasets - the processing is done in batches and is fully parallelized on a single machine (using parfor), and can be easily distributed across multiple machines with a common file system (the standard cluster setup in many universities).
 
@@ -33,7 +33,7 @@ The basic usage is relatively simple:
 
 The list of available features is: <pre>'color', 'gist', 'hog2x2', 'hog3x3', 'lbp', 'sift', 'ssim'</pre> 
 
-Details are given <a href="#details-of-included-features">below</a>. The <i>datasets_feature</i> function can be run on multiple machines in parallel to speed up feature extraction. This function handles the complete pipeline of building a dictionary (for bag-of-words features), coding features to the dictionary, and pooling them together in a spatial pyramid.
+Details are given <a href="FEATURES.md">here</a>. The <i>datasets_feature</i> function can be run on multiple machines in parallel to speed up feature extraction. This function handles the complete pipeline of building a dictionary (for bag-of-words features), coding features to the dictionary, and pooling them together in a spatial pyramid.
 
 You can use a single or multiple datasets as shown above. A seperate folder will be created for each dataset and a different dictionary will be learned, unless specified otherwise in the <a href="#config-structure">configuration structure</a>.
 
@@ -57,7 +57,7 @@ There are various options available through the config structure created using t
  - <b>verbosity</b>: used to change how much is output to screen during feature computation (0 = low, 1 = high)
  - <b>common_dictionary</b>: used to share a common dictionary across datasets. Dictionary is learned using equal number of samples from each dataset (useful for ECCV 2012 paper).
 
-Additional options are described in <i><a href="https://github.com/adikhosla/feature-extraction/blob/master/util/conf.m">conf.m</a></i>.
+Additional options are described in <i><a href="util/conf.m">conf.m</a></i>.
 
 Bundled code
 ------------
