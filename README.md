@@ -22,9 +22,9 @@ Basic usage
 The basic usage is relatively simple:
     
     >> addpath(genpath('.'));
+    >> datasets = {'pascal', 'sun'};                                     % specify name of datasets
     >> train_lists = {{'pascal1.jpg'}, {'sun1.jpg', sun2.jpg'}};         % specify lists of train images
     >> test_lists = {{'pascal2.jpg', 'pascal3.jpg'}, {'sun3.jpg'}};      % specify lists of test images
-    >> datasets = {'pascal', 'sun'};                                     % specify name of datasets
     >> feature = 'hog2x2';                                               % specify feature to use 
     >> c = conf();                                                       % load the config structure
     >> datasets_feature(datasets, train_lists, test_lists, feature, c);  % perform feature extraction
@@ -73,8 +73,14 @@ The following features are provided in this toolbox:
 
 Bundled code
 ------------
-
-
+There are functions or snippets of code included with or without modification from the following packages:
+ - Feature coding: <a href="http://www.ifp.illinois.edu/~jyang29/codes/CVPR10-LLC.rar">Locality-constrained linear coding</a>
+ - Pixelwise HOG/Gist: <a href="http://labelme.csail.mit.edu/LabelMeToolbox/LabelMeToolbox.zip">LabelMe Toolbox</a>
+ - For color features: <a href="http://lear.inrialpes.fr/people/vandeweijer/code/ColorNaming.tar">Color Naming</a>
+ - SIFT features: <a href="http://www.cs.illinois.edu/homes/slazebni/research/SpatialPyramid.zip">Spatial pyramid matching code</a>
+ - LBP features: <a href="http://www.cse.oulu.fi/CMV/Downloads/LBPMatlab">LBP Matlab code</a>
+ - SSIM: <a href="http://www.robots.ox.ac.uk/~vgg/software/SelfSimilarity/">VGG SSIM package</a>
+ - <a href="http://cseweb.ucsd.edu/~elkan/fastkmeans.tar">Fast k-means</a>
 
 Disclaimer
 ----------
