@@ -1,5 +1,5 @@
-Feature Extraction Toolbox for Image Classification
----------------------------------------------------
+Computer Vision Feature Extraction Toolbox for Image Classification
+-------------------------------------------------------------------
 
 The goal of this toolbox is to simplify the process of feature extraction, of commonly used computer vision features such as HOG, SIFT, GIST and Color, for tasks related to image classification. 
 
@@ -22,14 +22,14 @@ Basic usage
 The basic usage is relatively simple:
     
     >> addpath(genpath('.'));
-    >> train_lists = {{'pascal1.jpg'}, {'sun1.jpg', sun2.jpg'}};            % specify lists of train images
-    >> test_lists = {{'pascal2.jpg', 'pascal3.jpg'}, {'sun3.jpg'}};         % specify lists of test images
-    >> datasets = {'pascal', 'sun'};                                        % specify name of datasets
-    >> feature = 'hog2x2';                                                  % specify feature to use 
-    >> c = conf();                                                          % load the config structure
-    >> datasets_feature(datasets, train_lists, test_lists, feature, c);     % perform feature extraction
-    >> train_features = load_features(dataset{1}, feature, 'train', c);     % load train features of pascal
-    >> test_features = load_features(dataset{2}, feature, 'test', c);       % load test features of sun
+    >> train_lists = {{'pascal1.jpg'}, {'sun1.jpg', sun2.jpg'}};         % specify lists of train images
+    >> test_lists = {{'pascal2.jpg', 'pascal3.jpg'}, {'sun3.jpg'}};      % specify lists of test images
+    >> datasets = {'pascal', 'sun'};                                     % specify name of datasets
+    >> feature = 'hog2x2';                                               % specify feature to use 
+    >> c = conf();                                                       % load the config structure
+    >> datasets_feature(datasets, train_lists, test_lists, feature, c);  % perform feature extraction
+    >> train_features = load_features(dataset{1}, feature, 'train', c);  % load train features of pascal
+    >> test_features = load_features(dataset{2}, feature, 'test', c);    % load test features of sun
 
 The list of available features is: <pre>'color', 'gist', 'hog2x2', 'hog3x3', 'lbp', 'sift', 'ssim'</pre> 
 
@@ -99,7 +99,7 @@ Please cite a subset of the above papers if you use this code.
 Acknowledgements
 ----------------
 
-I am extremely grateful to Oscar Beijbom, Hamed Pirsiavash and Tinghui Zhou for being the initial users of this code, and providing useful comments and various bugfixes.
+I am extremely grateful to Oscar Beijbom, Hamed Pirsiavash and Tinghui Zhou for being the initial users of this toolbox, and providing useful comments and various bug-fixes.
 
 Questions and Comments
 ----------------------
