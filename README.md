@@ -5,17 +5,6 @@ The goal of this toolbox is to simplify the process of feature extraction, of co
 
 In addition to providing some of the popular features, the toolbox has been designed for use with the ever increasing size of modern datasets - the processing is done in batches and is fully parallelized on a single machine (using parfor), and can be easily distributed across multiple machines with a common file system (the standard cluster setup in many universities).
 
-Details of included features
-----------------------------
-
-The following features are provided in this toolbox:
- - <b>Color</b>: 
- - <b>Gist</b>: 
- - <b>Dense HOG2x2, HOG3x3</b>: 
- - <b>LBP</b>: 
- - <b>Dense SIFT</b>:
- - <b>SSIM</b>:
-
 Installation
 ------------
 Before you can use the code, you need to download this repository and compile the mex code:
@@ -27,19 +16,60 @@ Before you can use the code, you need to download this repository and compile th
     
 To the best of my knowledge, there should be no issues compiling on Linux, Mac or Windows.
 
+Basic usage
+-----------
+
+The basic usage is relatively simple:
+    
+    >> addpath(genpath('.'));
+    >> train_lists = {{'pascal1.jpg'}, {'sun1.jpg', sun2.jpg'}};            % specify lists of train images
+    >> test_lists = {{'pascal2.jpg', 'pascal3.jpg'}, {'sun3.jpg'}};         % specify lists of test images
+    >> datasets = {'pascal', 'sun'};                                        % specify name of datasets
+    >> feature = 'hog2x2';                                                  % specify feature to use 
+    >> c = conf();                                                          % load the config structure
+    >> datasets_feature(datasets, train_lists, test_lists, feature, c);     % perform feature extraction
+    >> train_features = load_features(dataset{1}, feature, 'train', c);     % load train features of pascal
+    >> test_features = load_features(dataset{2}, feature, 'test', c);       % load test features of sun
+
+The list of available features is: <pre>'color', 'gist', 'hog2x2', 'hog3x3', 'lbp', 'sift', 'ssim'</pre> 
+
+Details are given below. The <i>datasets_feature</i> function can be run on multiple machines in parallel to speed up feature extraction. This function handles the complete pipeline of building a dictionary (for bag-of-words features), coding features to the dictionary, and pooling them together in a spatial pyramid.
+
+You can use a single or multiple datasets as shown above. A seperate folder will be created for each dataset and a different dictionary will be learned, unless specified otherwise in the configuration structure (explained below).
+
 Demo
 ----
 
-There is a demo script provided in this code to extract color features on a provided set of train and test images. Then the features are used in a nearest neighbor classifier to classify the test images.
+There is a demo script provided in this code to extract color features on a provided set of train and test images. Then the features are used in a nearest neighbor classifier to predict the class of the test images.
 
     >> demo
 
 The demo above will show the train and test images, and the nearest neighbors of the test images from the training set.
 
-Basic usage
------------
+Config structure
+----------------
+
+There are various options available through the config structure created using the <i>conf()</i> function:
+ - <b>cache</b>: main folder where all the files will be stored
+ - <b>feature_config.(feature_name)</b>: contains the configuration of feature_name such as dictionary size
+ - <b>batch_size</b>: batch size for feature processing (reduce for less RAM usage)
+ - <b>cores</b>: specify number of cores to use for parfor (0 = use all)
+ - <b>verbosity</b>: used to change how much is output to screen during feature computation
+ - <b>common_dictionary</b>: used to share a common dictionary across datasets. Dictionary is learned using equal number of samples from each dataset (useful for ECCV 2012 paper).
+
+Additional options are described in <i>conf.m</i>.
 
 
+Details of included features
+----------------------------
+
+The following features are provided in this toolbox:
+ - <b>Color</b>: 
+ - <b>Gist</b>: 
+ - <b>Dense HOG2x2, HOG3x3</b>: 
+ - <b>LBP</b>: 
+ - <b>Dense SIFT</b>:
+ - <b>SSIM</b>:
 
 
 Disclaimer
