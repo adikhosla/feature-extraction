@@ -33,9 +33,9 @@ The basic usage is relatively simple:
 
 The list of available features is: <pre>'color', 'gist', 'hog2x2', 'hog3x3', 'lbp', 'sift', 'ssim'</pre> 
 
-Details are given below. The <i>datasets_feature</i> function can be run on multiple machines in parallel to speed up feature extraction. This function handles the complete pipeline of building a dictionary (for bag-of-words features), coding features to the dictionary, and pooling them together in a spatial pyramid.
+Details are given <a href="#details-of-included-features">below</a>. The <i>datasets_feature</i> function can be run on multiple machines in parallel to speed up feature extraction. This function handles the complete pipeline of building a dictionary (for bag-of-words features), coding features to the dictionary, and pooling them together in a spatial pyramid.
 
-You can use a single or multiple datasets as shown above. A seperate folder will be created for each dataset and a different dictionary will be learned, unless specified otherwise in the configuration structure (explained below).
+You can use a single or multiple datasets as shown above. A seperate folder will be created for each dataset and a different dictionary will be learned, unless specified otherwise in the <a href="#config-structure">configuration structure</a>.
 
 Demo
 ----
@@ -57,7 +57,7 @@ There are various options available through the config structure created using t
  - <b>verbosity</b>: used to change how much is output to screen during feature computation
  - <b>common_dictionary</b>: used to share a common dictionary across datasets. Dictionary is learned using equal number of samples from each dataset (useful for ECCV 2012 paper).
 
-Additional options are described in <i>conf.m</i>.
+Additional options are described in <i><a href="https://github.com/adikhosla/feature-extraction/blob/master/util/conf.m">conf.m</a></i>.
 
 
 Details of included features
@@ -71,11 +71,15 @@ The following features are provided in this toolbox:
  - <b>Dense SIFT</b>:
  - <b>SSIM</b>:
 
+Bundled code
+------------
+
+
 
 Disclaimer
 ----------
 
-Most of the features included in this toolbox have not been designed by me. I have either fine-tuned them or used them as is from existing work. This toolbox simply unifies existing code bases (which are credited in the bundled libraries section) in an easy to use architecture. I have done my best to highlight where different snippets of code originate from, but please do not hesitate to contact me if you find that I have missed anything. <b>Most importantly: please cite the original inventors of the different features when you use them in your work.</b>
+Most of the features included in this toolbox have not been designed by me. I have either fine-tuned them or used them as is from existing work. This toolbox simply unifies existing code bases (which are credited in the <a href="#bundled-code">bundled code</a> section) in an easy to use architecture. I have done my best to highlight where different snippets of code originate from, but please do not hesitate to contact me if you find that I have missed anything. <b>Most importantly: please cite the original inventors of the different features when you use them in your work.</b>
 
 Reference
 ---------
@@ -91,6 +95,11 @@ The provided code was used for feature extraction in the following papers:
  <br><a href="http://people.csail.mit.edu/khosla">Modifying the Memorability of Face Photographs</a>, ICCV 2013
 
 Please cite a subset of the above papers if you use this code.
+
+Acknowledgements
+----------------
+
+I am extremely grateful to Oscar Beijbom, Hamed Pirsiavash and Tinghui Zhou for being the initial users of this code, and providing useful comments and various bugfixes.
 
 Questions and Comments
 ----------------------
