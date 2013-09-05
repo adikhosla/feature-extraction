@@ -12,7 +12,7 @@ The following features are provided in this toolbox:
 Bag-of-words pipeline: using a random sampling of the extracted features from various patches, learn a dictionary using k-means [2], and apply locality-constrained linear coding (LLC) [6] to soft-encode each patch to a some dictionary entries. Then, as shown in [6], we apply max pooling with a spatial pyramid [4] to obtain the final feature vector. We use LLC as it allows the use of a linear classifier for classification instead of using non-linear kernels.
 
 The feature configurations can be accessed through the <i>conf</i> structure: <i>c.feature_config.(feature_name)</i>, where <i>feature_name</i> is one of the following:
-
+<pre>'color', 'gist', 'hog2x2', 'hog3x3', 'lbp', 'sift', 'ssim'</pre> 
 
 For the features using bag-of-words, some important feature configurations to consider are <i>pyramid_levels</i> and <i>dictionary_size</i>.
 
