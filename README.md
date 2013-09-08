@@ -77,7 +77,7 @@ There are functions or snippets of code included with or without modification fr
 Disclaimer
 ----------
 
-Most of the features included in this toolbox have not been designed by me. I have either fine-tuned them or used them as is from existing work. This toolbox simply unifies existing code bases (which are credited in the <a href="#bundled-code">bundled code</a> section) in an easy to use architecture. I have done my best to highlight where different snippets of code originate from, but please do not hesitate to contact me if you find that I have missed anything. <b>Most importantly: please cite the <a href="FEATURES.md">original inventors</a> of the different features when you use them in your work.</b>
+Most of the features included in this toolbox have not been designed by me. I have either fine-tuned them or used them as is from existing work. This toolbox simply unifies existing code bases (which are credited in the <a href="#bundled-code">bundled code</a> section) in an easy to use architecture. I have done my best to highlight where different snippets of code originate from, but please do not hesitate to contact me if you find that I have missed anything. <b>Most importantly: please cite the <a href="FEATURES.md">original inventors</a> of the different features (in addition to a subset of the <a href="#reference">references</a> below) when you use this toolbox in your work.</b>
 
 Reference
 ---------
