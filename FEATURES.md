@@ -2,7 +2,7 @@ Details of included features
 ----------------------------
 
 The following features are provided in this toolbox:
- - <b>Color</b>: Convert the image to color names [1] and extract dense overlapping patches of multiple sizes in the form of a histogram of color names. Then apply the bag-of-words + spatial pyramid pipeline explained below.
+ - <b>Color</b>: Convert the image to color names [1,12] and extract dense overlapping patches of multiple sizes in the form of a histogram of color names. Then apply the bag-of-words + spatial pyramid pipeline explained below.
  - <b>Gist</b>: GIST descriptor describing the spatial envelope of the image [10]
  - <b>Dense HOG2x2, HOG3x3</b>: Extract HOG [9] in a dense manner (i.e. on a grid) [3] and concatenate 2x2 or 3x3 cells to obtain a descriptor at each grid location. Then apply the bag-of-words + spatial pyramid pipeline explained below. This feature is also used in [11].
  - <b>LBP</b>: Extract non-uniform Local Binary Pattern [8] descriptor (neighborhood: 8, transitions: 2), and concatenate 3 levels of spatial pyramid to obtain final feature vector.
@@ -30,3 +30,4 @@ References
 [9] N. Dalal, B. Triggs, Histograms of oriented gradients for human detection, CVPR 2005<br/>
 [10] A. Oliva, A. Torralba, Modeling the shape of the scene: a holistic representation of the spatial envelope, IJCV 2001<br/>
 [11] J. Xiao, J. Hays, K. Ehinger, A. Oliva, A. Torralba, SUN database: Large-scale scene recognition from abbey to zoo, CVPR 2010<br/>
+[12] R. Khan, J. van de Weijer, F. Khan, D. Muselet, C. Ducottet, C. Barat, Discriminative Color Descriptors, CVPR 2013<br/>
