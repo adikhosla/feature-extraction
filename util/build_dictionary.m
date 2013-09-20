@@ -35,6 +35,7 @@ while(found_dictionary == 0)
       filelists = cellfun(@(x) x(randperm(length(x), min(length(x), images_per_dataset))), trainlists, 'UniformOutput', false);
       filelist = {};
       for i=1:length(filelists)
+				if(size(filelists{i},1)~=1), filelists{i}=filelists{i}'; end
         filelist = [filelist filelists{i}];
       end
     end

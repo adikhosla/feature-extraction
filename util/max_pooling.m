@@ -33,7 +33,22 @@ for i=1:pyramid(end)
         idx = cellfun(@(x, y) getIdxY(x, y,start_y, end_y), imageInfo, x_idx, 'UniformOutput', false);
         binIdx = (currentBin-1)*featureSize+1:currentBin*featureSize; 
         pyramidIdx{i, j} = binIdx;
-        beta(:, binIdx) = cell2mat(cellfun(@maxIdx, integralData, idx, 'UniformOutput', false));
+				emptyIdx = find(cellfun(@(x) sum(x)==0, idx));
+
+        if(~isempty(emptyIdx))
+            binIdx = (currentBin-1)*featureSize+1:currentBin*featureSize;
+            pyramidIdx{i, j} = binIdx;
+            idx(emptyIdx) = [];
+            tempIntegralData = integralData;
+            tempIntegralData(emptyIdx) = [];
+            tempbeta = cell2mat(cellfun(@maxIdx, tempIntegralData, idx, 'UniformOutput', false));
+            for k=1:length(emptyIdx)
+                tempbeta = insertrows(tempbeta, 0, emptyIdx(k)-1);
+            end
+            beta(:, binIdx) = tempbeta;
+        else
+            beta(:, binIdx) = cell2mat(cellfun(@maxIdx, integralData, idx, 'UniformOutput', false));
+        end
         currentBin = currentBin + 1;
     end
 end
