@@ -9,7 +9,7 @@ function [p] = config_color(c)
 %
 
 p.grid_spacing = 4; % distance between grid centers
-p.patch_sizes = [6 8 10 12 14 16];
+p.patch_sizes = [8 12 16];
 
 p.pyramid_levels = 2;
 p.llcknn = 3;
