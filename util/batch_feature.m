@@ -13,7 +13,7 @@ if(~exist('c', 'var'))
 end
 
 p = c.feature_config.(feature);
-if(isfield(p, 'dictionary_size'))
+if(isfield(p, 'dictionary_size') && isfield(p, 'dictionary_file'))
 	feature_file = sprintf(p.([imgset '_file']), c.cache, p.dictionary_size);
 	batch_folder = [c.cache '/' imgset '_' feature '_' num2str(p.dictionary_size) '/'];
 else
