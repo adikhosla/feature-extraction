@@ -32,8 +32,8 @@ The basic usage is relatively simple:
     >> feature = 'hog2x2';                                               % specify feature to use 
     >> c = conf();                                                       % load the config structure
     >> datasets_feature(datasets, train_lists, test_lists, feature, c);  % perform feature extraction
-    >> train_features = load_feature(dataset{1}, feature, 'train', c);   % load train features of pascal
-    >> test_features = load_feature(dataset{2}, feature, 'test', c);     % load test features of sun
+    >> train_features = load_feature(datasets{1}, feature, 'train', c);  % load train features of pascal
+    >> test_features = load_feature(datasets{2}, feature, 'test', c);    % load test features of sun
 
 The list of available features is: <pre>'color', 'gist', 'hog2x2', 'hog3x3', 'lbp', 'sift', 'ssim'</pre> 
 
