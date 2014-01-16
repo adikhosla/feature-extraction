@@ -27,7 +27,7 @@ The basic usage is relatively simple:
     
     >> addpath(genpath('.'));
     >> datasets = {'pascal', 'sun'};                                     % specify name of datasets
-    >> train_lists = {{'pascal1.jpg'}, {'sun1.jpg', sun2.jpg'}};         % specify lists of train images
+    >> train_lists = {{'pascal1.jpg'}, {'sun1.jpg', 'sun2.jpg'}};        % specify lists of train images
     >> test_lists = {{'pascal2.jpg', 'pascal3.jpg'}, {'sun3.jpg'}};      % specify lists of test images
     >> feature = 'hog2x2';                                               % specify feature to use 
     >> c = conf();                                                       % load the config structure
