@@ -26,7 +26,7 @@ for j=1:length(train_lists)
   c.cache = [cache_folder '/' dataset_names{i} '/'];
 
   if(~c.common_dictionary)
-      c.feature_config.(feature).dictionary = build_dictionary(train_lists, feature, c);
+      c.feature_config.(feature).dictionary = build_dictionary(train_lists{i}, feature, c);
   end
   
   batch_feature(train_lists{i}, 'train', feature, c);
