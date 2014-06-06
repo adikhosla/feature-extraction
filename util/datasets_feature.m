@@ -12,7 +12,9 @@ if(~exist('c', 'var'))
   c = conf();
 end
 
-openPool(c.cores);
+if (~exist('OCTAVE_VERSION','builtin'))
+    openPool(c.cores);
+end
 
 if(c.common_dictionary)
     c.feature_config.(feature).dictionary = build_dictionary(train_lists, feature, c);

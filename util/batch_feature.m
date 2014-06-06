@@ -56,4 +56,11 @@ else
     feat = {};
 end
 
-save(feature_file, 'feat', 'batch_files', '-v7.3');
+
+if exist('OCTAVE_VERSION','builtin')
+    save(feature_file, 'feat', 'batch_files', '-v7');
+else
+    % I guess matlab could also use v7 instead uses less storage
+    % and is faster see: http://stackoverflow.com/q/4950630/376445
+    save(feature_file, 'feat', 'batch_files', '-v7.3');
+end
