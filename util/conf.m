@@ -48,5 +48,16 @@ c.verbosity = 0;
 c.precision = 'single';
 
 % Reset the random seed
-stream = RandStream('mt19937ar','Seed', sum(1000*clock));
-RandStream.setGlobalStream(stream);
+seed = sum(1000*clock);
+
+if exist('OCTAVE_VERSION','builtin')
+    rand('state',seed);  % Octave
+    randn('state',seed); % Octave
+else
+    try
+        RandStream.setDefaultStream(RandStream('mt19937ar','seed',seed)); % matlab 7.9+
+    catch
+        rand('state',seed);  % Matlab 5+
+        randn('state',seed); % Matlab 5+
+    end
+end

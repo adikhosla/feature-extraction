@@ -9,6 +9,9 @@ The features extracted in a bag-of-words manner ('color', 'hog2x2', 'hog3x3', 's
 
 In my experients, I have found 'hog2x2' or 'hog3x3' to be most effective as global image features, and tend to perform even better when combined with 'color' features which contain complementary information.
 
+The toolbox works on Matlab and Octave. Octave may still have some compatibility issues though and doesn't
+support paralell processing.
+
 Installation
 ------------
 Before you can use the code, you need to download this repository and compile the mex code:
@@ -19,6 +22,7 @@ Before you can use the code, you need to download this repository and compile th
     >> compile
     
 To the best of my knowledge, there should be no issues compiling on Linux, Mac or Windows.
+Octave currently isn't able to compile, but most features should be working.
 
 Basic usage
 -----------
