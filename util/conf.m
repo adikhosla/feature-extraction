@@ -55,7 +55,7 @@ if exist('OCTAVE_VERSION','builtin')
     randn('state',seed); % Octave
 else
     try
-        RandStream.setDefaultStream(RandStream('mt19937ar','seed',seed)); % matlab 7.9+
+        RandStream.setGlobalStream(RandStream('mt19937ar','seed',seed)); % matlab 7.9+
     catch
         rand('state',seed);  % Matlab 5+
         randn('state',seed); % Matlab 5+
