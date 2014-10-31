@@ -8,10 +8,20 @@ function [] = openPool(s)
 %   Advances in Neural Information Processing Systems (NIPS) 2012
 %
 
-if(matlabpool('size')==0)
-	if(s==0)
-		matlabpool;
-	elseif(s>1)
-		matlabpool(s);
-	end
+if(exist('parpool'))
+  if(isempty(gcp('nocreate')))
+    if(s==0)
+      parpool;
+    elseif(s>1)
+      parpool(s);
+    end
+  end
+else
+  if(matlabpool('size')==0)
+  	if(s==0)
+  		matlabpool;
+  	elseif(s>1)
+  		matlabpool(s);
+  	end
+  end
 end
