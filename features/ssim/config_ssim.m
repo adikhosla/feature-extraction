@@ -1,4 +1,4 @@
-function [p] = config_hog3x3(c)
+function [p] = config_ssim(c)
 %
 % Copyright Aditya Khosla http://mit.edu/khosla
 %
